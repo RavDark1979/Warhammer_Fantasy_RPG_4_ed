@@ -24,27 +24,27 @@ def opposed_roll():
     attacker_roll = random.randint(1, 100)
     print(f'The attacker rolled: {attacker_roll}')
 
-    defender_roll = random.randint(1, 100)
+    defender_roll = random.randint(11, 11)
     print(f'The defender rolled: {defender_roll}')
 
     # rules
     if attacker_roll > attacker_skill_value and attacker_roll in doubles:
         print("Fumble effect on the attacker!")
     elif attacker_roll < attacker_skill_value and attacker_roll in doubles:
-        print("Critical hit made by the attacker")
+        print("Critical hit made by the attacker!")
     elif attacker_roll in range(96, 100):
-        print("Automatic failure!")
+        print("Automatic failure of the attacker!")
     elif attacker_roll in range(1, 5):
-        print("Automatic success!")
+        print("Automatic success of the attacker!")
 
     if defender_roll > defender_skill_value and defender_roll in doubles:
         print("Critical failure defender!")
     elif defender_roll < defender_skill_value and defender_roll in doubles:
-        print("Critical hit made by the defender")
+        print("Critical hit made by the defender!")
     elif defender_roll in range(96, 100):
-        print("Automatic failure!")
+        print("Automatic failure of the defender!")
     elif defender_roll in range(1, 5):
-        print("Automatic success!")
+        print("Automatic success of the defender!")
 
     # determining success levels
     success_level_attacker = (attacker_skill_value // 10) - (attacker_roll // 10)
@@ -71,11 +71,11 @@ def opposed_roll():
         print(f'Defender success levels is: {success_level_defender}')
 
     if success_level_attacker > success_level_defender:
-        print(f'Attacker wins and gains damage of: {int(success_level_attacker) - int(success_level_defender)}. This is addded to strength and weapon damage bonus. Advantage gained.')
+        print(f'Attacker wins and gains additional damage of: {int(success_level_attacker) - int(success_level_defender)}. This is addded to strength and weapon damage bonuses. Advantage gained.')
     elif success_level_attacker < success_level_defender:
         print((f'Defender wins and blocks the attack successfully. Advantage gained'))
 
-    again = input("Again? 'y' to continue  ")
+    again = input("Again? 'y' to continue. Select any other button to quit.")
     if again == "y":
         opposed_roll()
     else:
